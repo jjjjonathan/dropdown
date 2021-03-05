@@ -2,12 +2,29 @@ body {
   background-color: #dbe5de;
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%2392ac92' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
   font-size: 1rem;
-  padding: 1rem;
+  padding: 0.4rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .nav {
-  width: 15rem;
+  background: white;
+  border-radius: 5px;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+}
+
+.nav #nav-button {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav #nav-button i {
+  padding: 0.8rem;
+  cursor: pointer;
 }
 
 .nav ul {
@@ -16,20 +33,52 @@ body {
   padding: 0;
 }
 
-.nav li {
-  padding: 0.7rem 1rem;
-  border-bottom: 1px solid black;
-}
-
-.nav li:last-child {
-  border-bottom: none;
-}
-
 .nav a {
   text-decoration: none;
   color: inherit;
+  display: block;
+  padding: 0.8rem;
+}
+
+.nav li:hover:not(.nav-active) {
+  background: lightgray;
+}
+
+.nav .nav-active {
+  background: #92ac92;
+  color: white;
 }
 
 .nav-open {
-  background: white;
+  animation-name: nav-grow;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.nav-close {
+  animation-name: nav-shrink;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes nav-grow {
+  from {
+    width: 42px;
+    height: 42px;
+  }
+  to {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+@keyframes nav-shrink {
+  from {
+    width: 15rem;
+    height: 15rem;
+  }
+  to {
+    width: 42px;
+    height: 42px;
+  }
 }
